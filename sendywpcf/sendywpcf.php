@@ -18,7 +18,8 @@ add_action('init', 'sendywpcf_init');
 function sendywpcf_init() {
 
 	add_action( 'wpcf7_mail_sent', 'subscribe_from_cf7');
-	if (!function_exists('wpcf7_add_shortcode')) {
+	//if (!function_exists('wpcf7_add_shortcode')) {
+	if (!function_exists('wpcf7_add_form_tag')) {
 		return false;
 	}
 	wpcf7_add_shortcode('sendywpcf', 'get_list_id');
@@ -50,7 +51,7 @@ function get_list_id($args=[]) {
 */
 function subscribe_from_cf7($args=null) {
 
-	$sendyUrl = "http://www.yoursendy.com/subscribe";
+	$sendyUrl = "http://www.yoursendy.com/subscribe.php";
 
 	try {
 
@@ -59,8 +60,8 @@ function subscribe_from_cf7($args=null) {
 		}
 
 		$postdata = http_build_query([
-			'name' => $_POST['name'],
-			'email' => $_POST['email'],
+			'name' => $_POST['your-name'],
+			'email' => $_POST['your-email'],
 			'list' => $_POST['sendy_list_id'],
 			'boolean' => 'true'
 		]);

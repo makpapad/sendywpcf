@@ -5,16 +5,16 @@ Sendy integration for WP Contact Form 7 (https://wordpress.org/plugins/contact-f
 
 It's pretty easy and automatic. Just change the line to your Sendy location:
 
-``$sendyUrl = "http://www.yoursendy.com/subscribe";``
+``$sendyUrl = "http://www.yoursendy.com/subscribe.php";``
 
 Then use the Contact Form 7 to build you form like so:
 
 ```
 <p>Name *<br />
-    [text* name] </p>
+    [text* your-name] </p>
 
 <p>Your Email *<br />
-    [email* email] </p>
+    [email* your-email] </p>
 
 <p>[acceptance acceptance-175 default:on] Yes! Sign me up for the BETA list!</p>
 
